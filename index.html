@@ -470,28 +470,61 @@ function toast(msg,type='info'){const t=document.getElementById('toast');t.textC
 function saving(on){document.getElementById('sbar').style.display=on?'block':'none'}
 
 // CLOUD
+// We save ONLY small data to JSONBin (manual svcs, cats, hiddenIds, counters)
+// API services (2086 items) are NOT saved to JSONBin - too large (100KB limit)
+// Instead, API services auto-load fresh from Shadow SMM on each admin sync
+function cloudPayload(){
+  return {svcs, cats, apiHid:[...apiHid], nSvc, nCat};
+}
+
 async function loadCloud(){
   try{
-    const r=await fetch(BURL+'/latest',{headers:{'X-Master-Key':MKEY}});
+    const r=await fetch(BURL+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':false}});
     if(!r.ok) throw new Error('HTTP '+r.status);
-    const {record:d}=await r.json();
-    if(d.svcs&&d.svcs.length) svcs=d.svcs;
-    if(d.cats&&d.cats.length) cats=d.cats;
-    if(d.apiSvcs&&d.apiSvcs.length) apiSvcs=d.apiSvcs;
-    if(d.apiHid) apiHid=new Set(d.apiHid);
-    if(d.nSvc) nSvc=d.nSvc;
-    if(d.nCat) nCat=d.nCat;
-  }catch(e){console.warn('Cloud load failed, using defaults')}
+    const d=await r.json();
+    const rec=d.record||d;
+    if(rec.svcs&&rec.svcs.length) svcs=rec.svcs;
+    if(rec.cats&&rec.cats.length) cats=rec.cats;
+    if(rec.apiHid) apiHid=new Set(rec.apiHid);
+    if(rec.nSvc) nSvc=rec.nSvc;
+    if(rec.nCat) nCat=rec.nCat;
+    // Auto-load API services from Shadow SMM silently
+    loadAPISilently();
+  }catch(e){console.warn('Cloud load failed, using defaults:',e.message)}
   buildTabs();renderUser();
-  const tot=svcs.length+apiSvcs.filter(s=>!apiHid.has(String(s.service))).length;
-  document.getElementById('stat-total').textContent=tot+'+';
+  document.getElementById('stat-total').textContent=svcs.length+'+';
+}
+
+async function loadAPISilently(){
+  try{
+    const r=await fetch('/api/services');
+    if(!r.ok) return;
+    const data=await r.json();
+    if(data.success&&Array.isArray(data.services)){
+      apiSvcs=data.services;
+      buildTabs();renderUser();
+      const tot=svcs.length+apiSvcs.filter(s=>!apiHid.has(String(s.service))).length;
+      document.getElementById('stat-total').textContent=tot+'+';
+    }
+  }catch(e){/* silent fail */}
 }
 
 async function saveToCloud(){
   saving(true);
   try{
-    const r=await fetch(BURL,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':MKEY},body:JSON.stringify({svcs,cats,apiSvcs,apiHid:[...apiHid],nSvc,nCat})});
-    if(!r.ok) throw new Error('HTTP '+r.status);
+    const payload=cloudPayload();
+    const body=JSON.stringify(payload);
+    // Check size
+    if(body.length > 90000) throw new Error('Data too large for free JSONBin (100KB limit)');
+    const r=await fetch(BURL,{
+      method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':MKEY},
+      body
+    });
+    if(!r.ok){
+      const err=await r.json().catch(()=>({}));
+      throw new Error(`HTTP ${r.status}: ${err.message||'Check your Bin ID and Master Key'}`);
+    }
     toast('✓ Saved to cloud — live globally','success');
     document.getElementById('savebtn').disabled=true;
   }catch(e){toast('✗ Save failed: '+e.message,'error')}
@@ -500,8 +533,15 @@ async function saveToCloud(){
 
 async function autoSave(){
   saving(true);
-  try{await fetch(BURL,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':MKEY},body:JSON.stringify({svcs,cats,apiSvcs,apiHid:[...apiHid],nSvc,nCat})});toast('✓ Saved','success')}
-  catch(e){toast('✗ Auto-save failed','error')}
+  try{
+    const r=await fetch(BURL,{
+      method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':MKEY},
+      body:JSON.stringify(cloudPayload())
+    });
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    toast('✓ Saved','success');
+  }catch(e){toast('✗ Auto-save failed: '+e.message,'error')}
   saving(false);
 }
 
@@ -743,7 +783,7 @@ async function syncAPI(){
     if(!data.success)throw new Error(data.error||'API error');
     apiSvcs=Array.isArray(data.services)?data.services:[];
     res.className='sres sok';
-    res.textContent=`✓ Synced — ${apiSvcs.length} services loaded. Click "Save to Cloud" to make permanent.`;
+    res.textContent=`✓ Synced — ${apiSvcs.length} services loaded. API services auto-load every visit. Save hidden list via "Save to Cloud".`;
     res.style.display='block';
     document.getElementById('savebtn').disabled=false;
     renderApiAdmin();buildTabs();renderUser();
