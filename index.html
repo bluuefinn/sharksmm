@@ -17,10 +17,10 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 h1,h2,h3,h4{font-family:'Syne',sans-serif}
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
-.nav{position:sticky;top:0;z-index:200;background:rgba(7,7,14,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:rgba(7,7,14,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;gap:6px}
 .logo-g{background:linear-gradient(135deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-r{display:flex;align-items:center;gap:8px}
@@ -28,6 +28,8 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .nav-wa:hover{background:rgba(37,211,102,0.18)}
 .nav-admin{font-size:12px;padding:7px 14px;border-radius:8px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .nav-admin:hover{color:var(--text);border-color:var(--accent)}
+
+/* HERO */
 .hero{text-align:center;padding:64px 2rem 48px;background:radial-gradient(ellipse 100% 60% at 50% -5%,rgba(124,77,255,0.13) 0%,transparent 65%)}
 .hero-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(124,77,255,0.1);border:1px solid rgba(124,77,255,0.22);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:500;color:var(--accent3);margin-bottom:18px}
 .ldot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:blink 2s infinite}
@@ -39,18 +41,24 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .hs{text-align:center}
 .hs-v{font-family:'Syne',sans-serif;font-size:22px;font-weight:700}
 .hs-l{font-size:11px;color:var(--text3);margin-top:2px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* CONTROLS */
 .controls{max-width:1160px;margin:0 auto;padding:24px 2rem 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .sw{flex:1;min-width:180px;position:relative}
 .sw input{width:100%;height:42px;padding:0 14px 0 38px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border 0.2s}
 .sw input:focus{border-color:var(--accent)}
 .sw input::placeholder{color:var(--text3)}
 .sw-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none;font-size:14px}
-.src-sel{height:42px;padding:0 12px;font-size:13px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;transition:border 0.2s}
+.src-sel{height:42px;padding:0 12px;font-size:13px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-family:'DM Sans',sans-serif;outline:none;cursor:pointer}
 .src-sel:focus{border-color:var(--accent)}
+
+/* TABS */
 .tabs{max-width:1160px;margin:0 auto;padding:14px 2rem 0;display:flex;gap:6px;flex-wrap:wrap}
 .tab{padding:7px 15px;border-radius:8px;font-size:12px;font-weight:500;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;white-space:nowrap}
 .tab:hover{border-color:var(--border2);color:var(--text)}
 .tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* GRID */
 .grid{max-width:1160px;margin:0 auto;padding:18px 2rem 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .svc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;cursor:pointer;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;animation:fadeUp 0.35s both;position:relative;overflow:hidden}
 .svc-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(124,77,255,0.04),transparent 60%);pointer-events:none}
@@ -69,13 +77,14 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .cm{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
 .pt{font-size:11px;color:var(--text2);background:var(--bg3);padding:3px 9px;border-radius:5px}
 .dt{font-size:10px;color:var(--teal)}
-.ob{width:100%;margin-top:12px;height:38px;background:linear-gradient(135deg,var(--accent),#9b5cff);border:none;border-radius:10px;color:#fff;font-size:12px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;transition:opacity 0.2s,transform 0.15s;letter-spacing:0.3px}
+.ob{width:100%;margin-top:12px;height:38px;background:linear-gradient(135deg,var(--accent),#9b5cff);border:none;border-radius:10px;color:#fff;font-size:12px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;transition:opacity 0.2s,transform 0.15s}
 .ob:hover{opacity:0.88;transform:scale(0.99)}
 .lwrap{grid-column:1/-1;text-align:center;padding:48px 20px}
 .spin{width:30px;height:30px;border:2px solid var(--border2);border-top-color:var(--accent2);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 12px}
 @keyframes spin{to{transform:rotate(360deg)}}
 .empty{grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--text3)}
 .empty h3{font-size:16px;color:var(--text2);margin-bottom:6px}
+
 /* ORDER MODAL */
 .mov{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:16px}
 .mov.show{display:flex}
@@ -97,10 +106,11 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .oi::placeholder{color:var(--text3)}
 .oico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:14px;pointer-events:none}
 .onote{font-size:11px;color:var(--text3);margin-bottom:16px;line-height:1.5;padding:10px 12px;background:rgba(124,77,255,0.06);border-radius:8px;border-left:2px solid var(--accent)}
-.owab{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:48px;border-radius:12px;background:#25d366;border:none;color:#fff;font-size:14px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;transition:opacity 0.2s,transform 0.15s;margin-bottom:8px}
-.owab:hover{opacity:0.9;transform:scale(0.99)}
+.owab{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:48px;border-radius:12px;background:#25d366;border:none;color:#fff;font-size:14px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;transition:opacity 0.2s;margin-bottom:8px}
+.owab:hover{opacity:0.9}
 .ocnc{width:100%;height:38px;background:transparent;border:none;color:var(--text3);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:color 0.2s}
 .ocnc:hover{color:var(--text2)}
+
 /* LOCK */
 #ls{position:fixed;inset:0;z-index:900;background:rgba(5,5,12,0.97);backdrop-filter:blur(24px);display:none;align-items:center;justify-content:center}
 .lbox{background:var(--bg2);border:1px solid var(--border2);border-radius:22px;padding:40px 34px;width:340px;text-align:center}
@@ -114,6 +124,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .lerr{font-size:12px;color:var(--red);margin-top:8px;display:none}
 .lback{font-size:13px;color:var(--text3);margin-top:16px;cursor:pointer;display:block}
 .lback:hover{color:var(--text2)}
+
 /* ADMIN */
 #ap{min-height:100vh;display:none}
 .anav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
@@ -142,9 +153,6 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .syncb{height:38px;padding:0 16px;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.22);border-radius:8px;color:var(--cyan);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .syncb:hover{background:rgba(34,211,238,0.18)}
 .syncb:disabled{opacity:0.45;cursor:not-allowed}
-.saveb{height:38px;padding:0 16px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:8px;color:var(--green);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.2s;white-space:nowrap}
-.saveb:hover{background:rgba(34,197,94,0.2)}
-.saveb:disabled{opacity:0.45;cursor:not-allowed}
 .atw{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;overflow-x:auto}
 .atable{width:100%;border-collapse:collapse;font-size:12px;min-width:650px}
 .atable th{padding:10px 12px;text-align:left;font-weight:700;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg3);white-space:nowrap;font-family:'Syne',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.5px}
@@ -167,6 +175,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .sres{border-radius:10px;padding:12px 14px;margin-bottom:1rem;font-size:13px;display:none}
 .sok{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.22);color:var(--green)}
 .sfl{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.22);color:var(--red)}
+
 /* MODALS */
 .movo{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.72);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:16px}
 .movo.show{display:flex}
@@ -184,15 +193,17 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .mc:hover{color:var(--text);border-color:var(--text)}
 .ms{height:40px;padding:0 22px;border-radius:9px;background:var(--accent);border:none;color:#fff;cursor:pointer;font-size:13px;font-weight:700;font-family:'Syne',sans-serif;transition:opacity 0.2s}
 .ms:hover{opacity:0.85}
-/* TOAST + SAVING */
+
+/* TOAST & SAVING */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:12px 22px;font-size:13px;font-weight:500;z-index:9999;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);white-space:nowrap;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .toast.success{border-color:rgba(34,197,94,0.4);color:var(--green)}
 .toast.error{border-color:rgba(239,68,68,0.4);color:var(--red)}
 .toast.info{border-color:rgba(124,77,255,0.4);color:var(--accent2)}
-.sbar{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--cyan));z-index:9999;display:none;animation:sb 1.5s ease-in-out infinite}
-@keyframes sb{0%{opacity:1}50%{opacity:0.4}100%{opacity:1}}
-/* cat colors */
+.sbar{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--cyan));z-index:9999;display:none;animation:sb 1.2s ease-in-out infinite}
+@keyframes sb{0%{opacity:1}50%{opacity:0.3}100%{opacity:1}}
+
+/* COLORS */
 .c-netflix{background:rgba(229,9,20,0.13);color:#ff7070}
 .c-chatgpt{background:rgba(16,163,127,0.13);color:#34d399}
 .c-canva{background:rgba(124,77,255,0.13);color:var(--accent2)}
@@ -206,6 +217,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .c-maps{background:rgba(0,168,225,0.13);color:#60cdff}
 .c-capcut{background:rgba(245,158,11,0.13);color:#fde68a}
 .c-other{background:rgba(148,163,184,0.07);color:#64748b}
+
 @media(max-width:600px){
   .nav,.anav{padding:0 1rem}
   .hero{padding:48px 1rem 40px}
@@ -230,11 +242,11 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
     </div>
   </nav>
   <section class="hero">
-    <div class="hero-pill"><span class="ldot"></span> 2086+ Services Available</div>
+    <div class="hero-pill"><span class="ldot"></span> Services Available</div>
     <h1>Get Premium Digital<br><span class="hg">Services Instantly</span></h1>
     <p class="hero-sub">Netflix, ChatGPT, IPTV, TikTok & more — delivered to your inbox at the best prices.</p>
     <div class="hero-stats">
-      <div class="hs"><div class="hs-v" id="stat-total">35+</div><div class="hs-l">Services</div></div>
+      <div class="hs"><div class="hs-v" id="stat-total">—</div><div class="hs-l">Services</div></div>
       <div class="hs"><div class="hs-v" style="color:var(--green)">24/7</div><div class="hs-l">Support</div></div>
       <div class="hs"><div class="hs-v" style="color:var(--cyan)">Fast</div><div class="hs-l">Delivery</div></div>
     </div>
@@ -284,7 +296,8 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
       <button class="atab" onclick="switchATab('cat',this)">Categories</button>
       <button class="atab" onclick="switchATab('api',this)">Shadow SMM API</button>
     </div>
-    <!-- SERVICES -->
+
+    <!-- MY SERVICES -->
     <div id="tsvc">
       <div class="astats">
         <div class="astat"><div class="asl">My Services</div><div class="asv" id="atot">0</div></div>
@@ -302,12 +315,14 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
         <tbody id="atbody"></tbody>
       </table></div>
     </div>
+
     <!-- CATEGORIES -->
     <div id="tcat" style="display:none">
       <div class="atb"><button class="addb" onclick="openCatModal()">+ Add Category</button></div>
       <div class="cgrid" id="cgrid"></div>
     </div>
-    <!-- API -->
+
+    <!-- SHADOW SMM API -->
     <div id="tapi" style="display:none">
       <div class="astats">
         <div class="astat"><div class="asl">API Services</div><div class="asv" id="apitot">—</div></div>
@@ -319,7 +334,6 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
         <input type="text" id="apisearch" placeholder="Search API services..." oninput="renderApiAdmin()">
         <select id="apicatf" onchange="renderApiAdmin()"><option value="">All categories</option></select>
         <button class="syncb" id="syncbtn" onclick="syncAPI()">⟳ Sync Now</button>
-        <button class="saveb" id="savebtn" onclick="saveToCloud()" disabled>☁ Save to Cloud</button>
       </div>
       <div class="sres" id="sres"></div>
       <div class="atw"><table class="atable">
@@ -338,7 +352,8 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
       <div class="obinfo"><div class="obcat" id="ocat"></div><h3 id="oname"></h3></div>
     </div>
     <div class="opr">
-      <div><div style="font-size:10px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Price</div>
+      <div>
+        <div style="font-size:10px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Price</div>
         <div class="ousd" id="ousd"></div>
         <div style="font-size:11px;color:var(--text3);margin-top:2px" id="opkr"></div>
       </div>
@@ -368,7 +383,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
       <div class="fg"><label>Category</label><select id="mcat"></select></div>
     </div>
     <div class="fgr">
-      <div class="fg"><label>Base Price USD</label><input id="musd" type="number" step="0.0001" placeholder="e.g. 1.50"><div class="fgn">Sell = base × 1.20</div></div>
+      <div class="fg"><label>Base Price USD</label><input id="musd" type="number" step="0.0001" placeholder="e.g. 1.50"><div class="fgn">Sell price = base × 1.20 (auto)</div></div>
       <div class="fg"><label>Plan / Duration</label><input id="mplan" placeholder="e.g. 1 Month"></div>
     </div>
     <div class="fg"><label>Delivery Time</label><input id="mdel" placeholder="e.g. Within 24 Hours"></div>
@@ -405,13 +420,14 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 </div>
 
 <script>
-const PASS="admin786",MARKUP=1.20,CONTACT="+923228033682",WA="923228033682";
-const BIN_ID="69bd1e19aa77b01da900aa9f";
-const MKEY="$2a$10$um16glXffyoycbM2nISmp.h4SKoYdRzu/2lRE3cIoqxoONTymJtD0";
-const BURL=`https://api.jsonbin.io/v3/b/${BIN_ID}`;
+// ===== CONFIG =====
+const PASS="admin786", MARKUP=1.20, CONTACT="+923228033682", WA="923228033682";
+const DB="/api/db", SMM="/api/smm";
 
-let eSvcId=null,eCatId=null,nSvc=36,nCat=20;
-let apiSvcs=[],apiHid=new Set();
+// ===== STATE =====
+let eSvcId=null, eCatId=null, nSvc=36, nCat=20;
+let apiSvcs=[], apiHid=new Set();
+let saving=false;
 
 let cats=[
   {id:1,n:"Netflix",c:"c-netflix"},{id:2,n:"ChatGPT",c:"c-chatgpt"},
@@ -424,18 +440,18 @@ let cats=[
 ];
 
 let svcs=[
-  {id:1,n:"Netflix – 30 Days Private Screen",cat:"Netflix",usd:1.26,plan:"30 Days",d:`Private screen, your name on it. Full access to all shows & movies. Send your email to ${CONTACT}`,del:"Within 1 Hour"},
-  {id:2,n:"Netflix – 30 Days + Download",cat:"Netflix",usd:1.54,plan:"30 Days",d:`Private screen with download enabled. Full access. Send your email to ${CONTACT}`,del:"Within 2-3 Hours"},
+  {id:1,n:"Netflix – 30 Days Private Screen",cat:"Netflix",usd:1.26,plan:"30 Days",d:`Private screen, your name on it. Full access. Send your email to ${CONTACT}`,del:"Within 1 Hour"},
+  {id:2,n:"Netflix – 30 Days + Download",cat:"Netflix",usd:1.54,plan:"30 Days",d:`Private screen with download enabled. Send your email to ${CONTACT}`,del:"Within 2-3 Hours"},
   {id:3,n:"ChatGPT Plus – Monthly",cat:"ChatGPT",usd:2.80,plan:"1 Month",d:`Full GPT features. Private. Instant access. Send your email to ${CONTACT}`,del:"Instant"},
-  {id:4,n:"ChatGPT Plus – Semi-Annual",cat:"ChatGPT",usd:11.00,plan:"6 Months",d:`Private. 6 months warranty. Fast login. Send your email to ${CONTACT}`,del:"Instant"},
+  {id:4,n:"ChatGPT Plus – Semi-Annual",cat:"ChatGPT",usd:11.00,plan:"6 Months",d:`Private. 6 months warranty. Send your email to ${CONTACT}`,del:"Instant"},
   {id:5,n:"ChatGPT Plus – Annual",cat:"ChatGPT",usd:20.00,plan:"1 Year",d:`Secure + Private. 12 months guarantee. Send your email to ${CONTACT}`,del:"Instant"},
   {id:6,n:"Canva Premium – 30 Days",cat:"Canva",usd:0.1917,plan:"30 Days",d:`On your Gmail. 30 Days. Send your email to ${CONTACT}`,del:"Within 10-11 Hours"},
   {id:7,n:"Canva Premium – 60 Days",cat:"Canva",usd:0.3834,plan:"60 Days",d:`On your Gmail. 60 Days. Send your email to ${CONTACT}`,del:"Varies"},
   {id:8,n:"Canva Premium – 1 Year",cat:"Canva",usd:0.5751,plan:"1 Year",d:`On your Gmail. 1 Year. Send your email to ${CONTACT}`,del:"Varies"},
-  {id:9,n:"Canva Premium – Lifetime",cat:"Canva",usd:1.92,plan:"Lifetime",d:`On your Gmail. Lifetime access. Send your email to ${CONTACT}`,del:"Varies"},
+  {id:9,n:"Canva Premium – Lifetime",cat:"Canva",usd:1.92,plan:"Lifetime",d:`On your Gmail. Lifetime. Send your email to ${CONTACT}`,del:"Varies"},
   {id:10,n:"Canva PRO – 1 Year Shared",cat:"Canva",usd:2.00,plan:"1 Year",d:`Shared account. All features unlocked. Send your email to ${CONTACT}`,del:"Within 24 Hours"},
   {id:11,n:"Amazon Prime Video – 30 Days",cat:"Prime Video",usd:0.377,plan:"30 Days",d:`Private account. 30 Days. Send your email to ${CONTACT}`,del:"Within 21-22 Hours"},
-  {id:12,n:"Amazon Prime Video – 6 Screens",cat:"Prime Video",usd:1.32,plan:"1 Month",d:`Full account 6 screens with Gmail password. Send your email to ${CONTACT}`,del:"Varies"},
+  {id:12,n:"Amazon Prime Video – 6 Screens",cat:"Prime Video",usd:1.32,plan:"1 Month",d:`Full account 6 screens. Send your email to ${CONTACT}`,del:"Varies"},
   {id:13,n:"Opplex IPTV",cat:"IPTV",usd:1.41,plan:"1 Month",d:`1 month subscription. Send your WhatsApp to ${CONTACT}`,del:"Varies"},
   {id:14,n:"B1G IPTV",cat:"IPTV",usd:1.76,plan:"1 Month",d:`1 month subscription. Send your WhatsApp to ${CONTACT}`,del:"Varies"},
   {id:15,n:"Geo Asia IPTV",cat:"IPTV",usd:1.93,plan:"1 Month",d:`1 month subscription. Send your WhatsApp to ${CONTACT}`,del:"Varies"},
@@ -446,106 +462,81 @@ let svcs=[
   {id:20,n:"T-Rex IPTV",cat:"IPTV",usd:3.51,plan:"1 Month",d:`1 month subscription. Send your WhatsApp to ${CONTACT}`,del:"Varies"},
   {id:21,n:"CapCut Pro",cat:"CapCut",usd:3.39,plan:"1 Month",d:`Semi-private. Full access. Send your email to ${CONTACT}`,del:"Within 24 Hours"},
   {id:22,n:"Pak Approved Adsense (YT Hosted)",cat:"Adsense",usd:2.875,plan:"YT Hosted",d:`Pakistan approved Adsense. Send email or WhatsApp to ${CONTACT}`,del:"Varies"},
-  {id:23,n:"Pak Pin Verified Adsense",cat:"Adsense",usd:25.5404,plan:"YT Hosted",d:`Pakistan pin verified Adsense. Send email or WhatsApp to ${CONTACT}`,del:"Within 100 Hours"},
-  {id:24,n:"TikTok Monetizable – USA",cat:"TikTok",usd:0.8369,plan:"1 Account",d:`Fresh monetizable account. Country: USA. Send Gmail & password to ${CONTACT}`,del:"Within 87 Hours"},
-  {id:25,n:"TikTok Monetizable – UK",cat:"TikTok",usd:0.547,plan:"1 Account",d:`Fresh monetizable account. Country: UK. Send Gmail & password to ${CONTACT}`,del:"Within 56 Hours"},
+  {id:23,n:"Pak Pin Verified Adsense",cat:"Adsense",usd:25.5404,plan:"YT Hosted",d:`Pin verified Adsense. Send email or WhatsApp to ${CONTACT}`,del:"Within 100 Hours"},
+  {id:24,n:"TikTok Monetizable – USA",cat:"TikTok",usd:0.8369,plan:"1 Account",d:`Fresh account. Country: USA. Send Gmail & password to ${CONTACT}`,del:"Within 87 Hours"},
+  {id:25,n:"TikTok Monetizable – UK",cat:"TikTok",usd:0.547,plan:"1 Account",d:`Fresh account. Country: UK. Send Gmail & password to ${CONTACT}`,del:"Within 56 Hours"},
   {id:26,n:"TikTok Monetizable – Spain",cat:"TikTok",usd:0.547,plan:"1 Account",d:`Fresh account. Country: Spain. Send Gmail & password to ${CONTACT}`,del:"Within 1-2 Hours"},
   {id:27,n:"TikTok Monetizable – Italy",cat:"TikTok",usd:0.547,plan:"1 Account",d:`Fresh account. Country: Italy. Send email or WhatsApp to ${CONTACT}`,del:"Varies"},
   {id:28,n:"TikTok Monetizable – Germany",cat:"TikTok",usd:0.547,plan:"1 Account",d:`Fresh account. Country: Germany. Send Gmail & password to ${CONTACT}`,del:"Varies"},
   {id:29,n:"TikTok Monetizable – France",cat:"TikTok",usd:0.8369,plan:"1 Account",d:`Fresh account. Country: France. Send Gmail & password to ${CONTACT}`,del:"Within 260 Hours"},
-  {id:30,n:"TikTok Agency – USA",cat:"TikTok",usd:1.1615,plan:"Agency",d:`TikTok agency account for ads. Send WhatsApp to ${CONTACT}`,del:"Within 10-11 Hours"},
+  {id:30,n:"TikTok Agency – USA",cat:"TikTok",usd:1.1615,plan:"Agency",d:`TikTok agency for ads. Send WhatsApp to ${CONTACT}`,del:"Within 10-11 Hours"},
   {id:31,n:"YouTube Premium",cat:"YouTube",usd:1.587,plan:"1 Month",d:`100% Ad-Free. Via Gmail. Send your email to ${CONTACT}`,del:"Within 0-6 Hours"},
   {id:32,n:"VidIQ Boost Plan",cat:"VidIQ",usd:7.6128,plan:"30 Days",d:`Private access. 30-day validity. Send your email to ${CONTACT}`,del:"Within 1-12 Hours"},
-  {id:33,n:"Envato Elements",cat:"Envato",usd:3.3731,plan:"Monthly",d:`Premium shared access. Delivery 2-6 hours. Send your email to ${CONTACT}`,del:"Within 2-6 Hours"},
+  {id:33,n:"Envato Elements",cat:"Envato",usd:3.3731,plan:"Monthly",d:`Premium shared access. Send your email to ${CONTACT}`,del:"Within 2-6 Hours"},
   {id:34,n:"Google Maps Reviews – Package A",cat:"Google Maps",usd:550.00,plan:"Max 10K",d:`Worldwide. 5 Stars + Comments. Lifetime. Send business link to ${CONTACT}`,del:"Varies"},
   {id:35,n:"Google Maps Reviews – Package B",cat:"Google Maps",usd:660.00,plan:"Max 10K",d:`Worldwide. 5 Stars + Comments. Lifetime. Send business link to ${CONTACT}`,del:"Varies"},
 ];
 
+// ===== HELPERS =====
 function su(u){return(u*MARKUP).toFixed(2)}
 function sp(u){return Math.round(u*MARKUP*278).toLocaleString()}
 function cc(name){const c=cats.find(x=>x.n===name);return c?c.c:'c-other'}
 function emoji(cat){const m={Netflix:'🎬',ChatGPT:'🤖',Canva:'🎨','Prime Video':'📺',IPTV:'📡',Adsense:'💰',TikTok:'🎵',YouTube:'▶️',VidIQ:'📈',Envato:'🎭','Google Maps':'🗺️',CapCut:'✂️'};return m[cat]||'⚡'}
-
-function toast(msg,type='info'){const t=document.getElementById('toast');t.textContent=msg;t.className=`toast ${type} show`;setTimeout(()=>t.classList.remove('show'),3000)}
-function saving(on){document.getElementById('sbar').style.display=on?'block':'none'}
-
-// CLOUD
-// We save ONLY small data to JSONBin (manual svcs, cats, hiddenIds, counters)
-// API services (2086 items) are NOT saved to JSONBin - too large (100KB limit)
-// Instead, API services auto-load fresh from Shadow SMM on each admin sync
-function cloudPayload(){
-  return {svcs, cats, apiHid:[...apiHid], nSvc, nCat};
+function toast(msg,type='info'){const t=document.getElementById('toast');t.textContent=msg;t.className=`toast ${type} show`;setTimeout(()=>t.classList.remove('show'),3200)}
+function showSaving(on){document.getElementById('sbar').style.display=on?'block':'none'}
+function updateStat(){
+  const tot=svcs.length+apiSvcs.filter(s=>!apiHid.has(String(s.service))).length;
+  document.getElementById('stat-total').textContent=tot+'+';
 }
 
+// ===== SUPABASE DB =====
 async function loadCloud(){
   try{
-    const r=await fetch(BURL+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':false}});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const d=await r.json();
-    const rec=d.record||d;
-    if(rec.svcs&&rec.svcs.length) svcs=rec.svcs;
-    if(rec.cats&&rec.cats.length) cats=rec.cats;
-    if(rec.apiHid) apiHid=new Set(rec.apiHid);
-    if(rec.nSvc) nSvc=rec.nSvc;
-    if(rec.nCat) nCat=rec.nCat;
-    // Auto-load API services from Shadow SMM silently
-    loadAPISilently();
-  }catch(e){console.warn('Cloud load failed, using defaults:',e.message)}
-  buildTabs();renderUser();
-  document.getElementById('stat-total').textContent=svcs.length+'+';
+    const r=await fetch(DB);
+    const j=await r.json();
+    if(j.success && j.data){
+      const d=j.data;
+      if(d.svcs && d.svcs.length) svcs=d.svcs;
+      if(d.cats && d.cats.length) cats=d.cats;
+      if(d.api_hid) apiHid=new Set(d.api_hid);
+      if(d.n_svc) nSvc=d.n_svc;
+      if(d.n_cat) nCat=d.n_cat;
+    }
+  }catch(e){console.warn('DB load failed, using defaults:',e.message)}
+  buildTabs(); renderUser(); updateStat();
+  // silently load SMM API services
+  loadSMMSilent();
 }
 
-async function loadAPISilently(){
+async function saveCloud(){
+  if(saving) return;
+  saving=true; showSaving(true);
   try{
-    const r=await fetch('/api/services');
+    const r=await fetch(DB,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({svcs, cats, api_hid:[...apiHid], n_svc:nSvc, n_cat:nCat})
+    });
+    const j=await r.json();
+    if(!j.success) throw new Error(j.error||'Save failed');
+    toast('✓ Saved globally','success');
+  }catch(e){toast('✗ '+e.message,'error')}
+  saving=false; showSaving(false);
+}
+
+async function loadSMMSilent(){
+  try{
+    const r=await fetch(SMM);
     if(!r.ok) return;
-    const data=await r.json();
-    if(data.success&&Array.isArray(data.services)){
-      apiSvcs=data.services;
-      buildTabs();renderUser();
-      const tot=svcs.length+apiSvcs.filter(s=>!apiHid.has(String(s.service))).length;
-      document.getElementById('stat-total').textContent=tot+'+';
+    const d=await r.json();
+    if(d.success && Array.isArray(d.services)){
+      apiSvcs=d.services;
+      buildTabs(); renderUser(); updateStat();
     }
-  }catch(e){/* silent fail */}
+  }catch(e){/* silent */}
 }
 
-async function saveToCloud(){
-  saving(true);
-  try{
-    const payload=cloudPayload();
-    const body=JSON.stringify(payload);
-    // Check size
-    if(body.length > 90000) throw new Error('Data too large for free JSONBin (100KB limit)');
-    const r=await fetch(BURL,{
-      method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':MKEY},
-      body
-    });
-    if(!r.ok){
-      const err=await r.json().catch(()=>({}));
-      throw new Error(`HTTP ${r.status}: ${err.message||'Check your Bin ID and Master Key'}`);
-    }
-    toast('✓ Saved to cloud — live globally','success');
-    document.getElementById('savebtn').disabled=true;
-  }catch(e){toast('✗ Save failed: '+e.message,'error')}
-  saving(false);
-}
-
-async function autoSave(){
-  saving(true);
-  try{
-    const r=await fetch(BURL,{
-      method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':MKEY},
-      body:JSON.stringify(cloudPayload())
-    });
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    toast('✓ Saved','success');
-  }catch(e){toast('✗ Auto-save failed: '+e.message,'error')}
-  saving(false);
-}
-
-// USER
+// ===== USER RENDER =====
 function buildTabs(){
   const src=document.getElementById('usrc').value;
   let cs=[];
@@ -564,42 +555,41 @@ function renderUser(){
   let cards=[];
   if(src==='manual'||src==='all'){
     svcs.filter(s=>(!q||s.n.toLowerCase().includes(q)||s.cat.toLowerCase().includes(q)||s.d.toLowerCase().includes(q))&&(fc==='All'||s.cat===fc))
-      .forEach((s,i)=>cards.push(`<div class="svc-card" style="animation-delay:${(i%24)*0.03}s">
-        <div class="ct"><span class="cat-badge ${cc(s.cat)}">${s.cat}</span><span class="src-tag src-m">Our Service</span></div>
-        <div class="cn">${s.n}</div>
-        <div class="cd">${s.d}</div>
-        <div class="cb">
-          <div><div class="pu">$${su(s.usd)}</div><div class="pp">PKR ${sp(s.usd)}</div></div>
-          <div class="cm"><span class="pt">${s.plan}</span><span class="dt">⚡ ${s.del}</span></div>
-        </div>
-        <button class="ob" onclick="openOrder(event,'m',${s.id})">Order Now</button>
-      </div>`));
+    .forEach((s,i)=>cards.push(`<div class="svc-card" style="animation-delay:${(i%24)*0.03}s">
+      <div class="ct"><span class="cat-badge ${cc(s.cat)}">${s.cat}</span><span class="src-tag src-m">Our Service</span></div>
+      <div class="cn">${s.n}</div><div class="cd">${s.d}</div>
+      <div class="cb">
+        <div><div class="pu">$${su(s.usd)}</div><div class="pp">PKR ${sp(s.usd)}</div></div>
+        <div class="cm"><span class="pt">${s.plan}</span><span class="dt">⚡ ${s.del}</span></div>
+      </div>
+      <button class="ob" onclick="openOrder(event,'m',${s.id})">Order Now</button>
+    </div>`));
   }
   if((src==='api'||src==='all')&&apiSvcs.length){
     apiSvcs.filter(s=>!apiHid.has(String(s.service))&&(!q||s.name.toLowerCase().includes(q)||s.category.toLowerCase().includes(q))&&(fc==='All'||s.category===fc))
-      .forEach((s,i)=>{
-        const sell=(parseFloat(s.rate||0)*MARKUP).toFixed(4);
-        cards.push(`<div class="svc-card" style="animation-delay:${(i%24)*0.03}s">
-          <div class="ct"><span class="cat-badge c-other">${s.category||'SMM'}</span><span class="src-tag src-a">Shadow SMM</span></div>
-          <div class="cn">${s.name}</div>
-          <div class="cd">Min: ${s.min} | Max: ${s.max}${s.description?' — '+s.description:''}</div>
-          <div class="cb">
-            <div><div class="pu">$${parseFloat(sell).toFixed(4)}</div><div class="pp">per 1000</div></div>
-            <div class="cm"><span class="pt">ID: ${s.service}</span><span class="dt">⚡ API</span></div>
-          </div>
-          <button class="ob" onclick='openAPIOrder(event,${JSON.stringify(s).replace(/'/g,"&#39;")})'>Order Now</button>
-        </div>`);
-      });
+    .forEach((s,i)=>{
+      const sell=(parseFloat(s.rate||0)*MARKUP).toFixed(4);
+      cards.push(`<div class="svc-card" style="animation-delay:${(i%24)*0.03}s">
+        <div class="ct"><span class="cat-badge c-other">${s.category||'SMM'}</span><span class="src-tag src-a">Shadow SMM</span></div>
+        <div class="cn">${s.name}</div>
+        <div class="cd">Min: ${s.min} | Max: ${s.max}${s.description?' — '+s.description:''}</div>
+        <div class="cb">
+          <div><div class="pu">$${parseFloat(sell).toFixed(4)}</div><div class="pp">per 1000</div></div>
+          <div class="cm"><span class="pt">ID: ${s.service}</span><span class="dt">⚡ API</span></div>
+        </div>
+        <button class="ob" onclick='openAPIOrder(event,${JSON.stringify(s).replace(/'/g,"&#39;")})'>Order Now</button>
+      </div>`);
+    });
   }
   const g=document.getElementById('ugrid');
   if(!cards.length){g.innerHTML=`<div class="empty"><h3>No services found</h3><p>Try a different search or category.</p></div>`;return}
   g.innerHTML=cards.join('');
 }
 
-// ORDER
+// ===== ORDER =====
 function openOrder(evt,type,id){
   evt.stopPropagation();
-  const s=svcs.find(x=>x.id===id);if(!s)return;
+  const s=svcs.find(x=>x.id===id); if(!s) return;
   document.getElementById('oicon').textContent=emoji(s.cat);
   document.getElementById('ocat').textContent=s.cat;
   document.getElementById('oname').textContent=s.n;
@@ -633,7 +623,7 @@ function openAPIOrder(evt,s){
   document.getElementById('opkr').textContent='per 1000 units';
   document.getElementById('oplan').textContent='Min: '+s.min+' | Max: '+s.max;
   document.getElementById('odel').textContent='⚡ API Delivery';
-  document.getElementById('onote').textContent=`Service ID: ${s.service}. Include your link or username in the WhatsApp message.`;
+  document.getElementById('onote').textContent=`Service ID: ${s.service}. Include your link/username in the WhatsApp message.`;
   document.getElementById('oemail').value='';
   document.getElementById('owa').value='';
   document.getElementById('owabtn').onclick=()=>{
@@ -650,7 +640,7 @@ function openAPIOrder(evt,s){
 }
 function closeOrder(){document.getElementById('omod').classList.remove('show')}
 
-// LOCK
+// ===== LOCK =====
 function showLock(){document.getElementById('ls').style.display='flex';document.getElementById('lpass').value='';document.getElementById('lerr').style.display='none';setTimeout(()=>document.getElementById('lpass').focus(),100)}
 function hideLock(){document.getElementById('ls').style.display='none'}
 function tryUnlock(){
@@ -662,7 +652,7 @@ function tryUnlock(){
 function logout(){document.getElementById('ap').style.display='none';document.getElementById('up').style.display='block';buildTabs();renderUser()}
 function switchToUser(){document.getElementById('ap').style.display='none';document.getElementById('up').style.display='block';buildTabs();renderUser()}
 
-// ADMIN TABS
+// ===== ADMIN TABS =====
 function switchATab(t,el){
   document.querySelectorAll('.atab').forEach(x=>x.classList.remove('active'));el.classList.add('active');
   document.getElementById('tsvc').style.display=t==='svc'?'block':'none';
@@ -672,7 +662,7 @@ function switchATab(t,el){
   if(t==='api') renderApiAdmin();
 }
 
-// ADMIN SERVICES
+// ===== ADMIN SERVICES =====
 function renderAdminSvc(){
   const q=(document.getElementById('asearch').value||'').toLowerCase();
   const fc=document.getElementById('afilter').value||'';
@@ -701,7 +691,7 @@ function renderAdminSvc(){
 function delSvc(id){
   if(!confirm('Delete this service?'))return;
   svcs=svcs.filter(s=>s.id!==id);
-  renderAdminSvc();buildTabs();autoSave();
+  renderAdminSvc();buildTabs();saveCloud();
 }
 
 function openSvcModal(id){
@@ -725,23 +715,18 @@ function saveSvc(){
   const del=document.getElementById('mdel').value.trim();
   const d=document.getElementById('mdesc').value.trim();
   if(!n||isNaN(usd)||usd<=0){alert('Name and valid price required.');return}
-  if(eSvcId){const s=svcs.find(x=>x.id===eSvcId);if(s) Object.assign(s,{n,cat,usd,plan,del,d});}
+  if(eSvcId){const s=svcs.find(x=>x.id===eSvcId);if(s)Object.assign(s,{n,cat,usd,plan,del,d});}
   else svcs.push({id:nSvc++,n,cat,usd,plan,del,d});
-  closeSvcModal();renderAdminSvc();buildTabs();autoSave();
+  closeSvcModal();renderAdminSvc();buildTabs();saveCloud();
 }
 
-// CATEGORIES
+// ===== CATEGORIES =====
 function renderCats(){
   document.getElementById('cgrid').innerHTML=cats.map(c=>`
     <div class="ccard">
-      <div>
-        <span class="cat-badge ${c.c}" style="font-size:10px;padding:3px 9px">${c.n}</span>
-        <div class="ccnt">${svcs.filter(s=>s.cat===c.n).length} services</div>
-      </div>
-      <div class="cacts">
-        <button class="ae" onclick="openCatModal(${c.id})">Edit</button>
-        <button class="ad" onclick="delCat(${c.id})">Del</button>
-      </div>
+      <div><span class="cat-badge ${c.c}" style="font-size:10px;padding:3px 9px">${c.n}</span>
+      <div class="ccnt">${svcs.filter(s=>s.cat===c.n).length} services</div></div>
+      <div class="cacts"><button class="ae" onclick="openCatModal(${c.id})">Edit</button><button class="ad" onclick="delCat(${c.id})">Del</button></div>
     </div>`).join('');
 }
 function openCatModal(id){
@@ -759,7 +744,7 @@ function saveCat(){
   if(!n){alert('Name required');return}
   if(eCatId){const c=cats.find(x=>x.id===eCatId);if(c){const old=c.n;c.n=n;c.c=co;svcs.forEach(s=>{if(s.cat===old)s.cat=n});}}
   else cats.push({id:nCat++,n,c:co});
-  closeCatModal();renderCats();buildTabs();autoSave();
+  closeCatModal();renderCats();buildTabs();saveCloud();
 }
 function delCat(id){
   const c=cats.find(x=>x.id===id);if(!c)return;
@@ -767,26 +752,27 @@ function delCat(id){
   if(cnt>0&&!confirm(`"${c.n}" has ${cnt} services. They'll move to "Other". Continue?`))return;
   svcs.forEach(s=>{if(s.cat===c.n)s.cat='Other'});
   cats=cats.filter(x=>x.id!==id);
-  if(!cats.find(x=>x.n==='Other')) cats.push({id:nCat++,n:'Other',c:'c-other'});
-  renderCats();renderAdminSvc();buildTabs();autoSave();
+  if(!cats.find(x=>x.n==='Other'))cats.push({id:nCat++,n:'Other',c:'c-other'});
+  renderCats();renderAdminSvc();buildTabs();saveCloud();
 }
 
-// API
+// ===== SHADOW SMM API =====
 async function syncAPI(){
   const btn=document.getElementById('syncbtn');
   const res=document.getElementById('sres');
   btn.disabled=true;btn.textContent='⟳ Syncing...';res.style.display='none';
   try{
-    const r=await fetch('/api/services');
-    if(!r.ok)throw new Error('HTTP '+r.status);
+    const r=await fetch(SMM);
+    if(!r.ok) throw new Error('HTTP '+r.status);
     const data=await r.json();
-    if(!data.success)throw new Error(data.error||'API error');
+    if(!data.success) throw new Error(data.error||'API error');
     apiSvcs=Array.isArray(data.services)?data.services:[];
     res.className='sres sok';
-    res.textContent=`✓ Synced — ${apiSvcs.length} services loaded. API services auto-load every visit. Save hidden list via "Save to Cloud".`;
+    res.textContent=`✓ Synced — ${apiSvcs.length} services loaded from Shadow SMM. Hidden list auto-saved.`;
     res.style.display='block';
-    document.getElementById('savebtn').disabled=false;
-    renderApiAdmin();buildTabs();renderUser();
+    // save hidden list to DB
+    saveCloud();
+    renderApiAdmin();buildTabs();renderUser();updateStat();
   }catch(e){
     res.className='sres sfl';
     res.textContent='✗ Sync failed: '+e.message;
@@ -828,9 +814,10 @@ function toggleAPI(id){
   const sid=String(id);
   if(apiHid.has(sid))apiHid.delete(sid);else apiHid.add(sid);
   renderApiAdmin();buildTabs();renderUser();
-  document.getElementById('savebtn').disabled=false;
+  saveCloud();
 }
 
+// ===== INIT =====
 loadCloud();
 </script>
 </body>
